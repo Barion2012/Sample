@@ -30,7 +30,7 @@ public class PService : IService
             .Select(f=>new JobItem { 
                 Completed=f.Completed.ToString("dd.MM.yyyy"), 
                 Description=f.Description, 
-                Cost=f.Cost.ToString("hh:mm"), 
+                Cost=f.Cost.ToString("HH:mm"), 
                 UserName=f.UserNavigation.Name,
                 CostNum = f.CostNum
             })

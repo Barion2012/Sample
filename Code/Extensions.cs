@@ -22,8 +22,21 @@ public static class Extensions
             await using (var scope = app.Services.CreateAsyncScope())
             {
                 var service = scope.ServiceProvider.GetRequiredService<IService>();
-
-                await service.AddNewJob(job);
+                try
+                {
+                    await service.AddNewJob(job);
+                }
+                catch(Exception)
+                {
+                    if (string.IsNullOrWhiteSpace(job.Description))
+                    {
+                        throw new Exception("Заполните пожалуйста описание задачи");
+                    }
+                    else
+                    {
+                        throw new Exception("Пожалуйста укажите время в формате ЧЧ:ММ");
+                    }
+                }
                 return await service.GetJobData();
             }
         });

@@ -7,7 +7,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">        
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-        <script src="app.js?_v=10023"></script>
+        <script src="app.js?_v=10036"></script>
     </head>
 
     <body ng-controller="SearchCtrl" ng-init="getjobs()">
@@ -17,34 +17,34 @@
         <div class="container-fluid">
 
             <div class="row-fluid">
-                <button ng-click="addjob()" class="btn" type="button">{{isAdding? 'Сохранить':'Добавить'}}</button>
                 <button ng-show="isAdding" class="btn" ng-click="isAdding=false" type="button">Отмена</button>
+                <button ng-click="addjob()" class="btn" type="button">{{isAdding? 'Сохранить':'Добавить'}}</button>
             </div>
             <div class="row">
-                <div class="col-md-2">Дата выполнения</div>
-                <div class="col-md-7">Описание</div>
-                <div class="col-md-1">Потраченное время</div>
-                <div class="col-md-2">Исполнитель</div>
+                <div class="col-md-2"><b>Дата выполнения</b></div>
+                <div class="col-md-6"><b>Описание</b></div>
+                <div class="col-md-2"><b>Потраченное время</b></div>
+                <div class="col-md-2"><b>Исполнитель</b></div>
             </div>
 
             <div class="row" ng-show="isAdding">
                 <div class="col-md-2">{{job.completed}}</div>
-                <div class="col-md-7"><input class="input-block-level" ng-model="job.description" type="text" /></div>
-                <div class="col-md-1"><input class="input-block-level" ng-model="job.cost" type="text" /></div>
+                <div class="col-md-6"><input class="input-block-level" ng-model="job.description" type="text" /></div>
+                <div class="col-md-2"><input width="40" class="input-block-level" ng-model="job.cost" type="text" /></div>
                 <div class="col-md-2">{{job.name}}</div>
             </div>
 
             <div class="row" ng-repeat="r in jobdata.jobs">
                 <div class="col-md-2">{{r.completed}}</div>
-                <div class="col-md-7">{{r.description}}</div>
-                <div class="col-md-1">{{r.cost}}</div>
+                <div class="col-md-6">{{r.description}}</div>
+                <div class="col-md-2">{{r.cost}}</div>
                 <div class="col-md-2">{{r.userName}}</div>
             </div>
 
             <div class="row">
-                <div class="col-md-3">Время всего:</div>
-                <div class="col-md-6">{{jobdata.hours}} час. {{jobdata.minutes}} мин.</div>
-                <div class="col-md-3">({{jobdata.totalMinutes}} минут)</div>
+                <div class="col-md-2"><b>Время всего:</b></div>
+                <div class="col-md-6"><b>{{jobdata.hours}} час. {{jobdata.minutes}} мин.</b></div>
+                <div class="col-md-4"><b>({{jobdata.totalMinutes}} минут)</b></div>
             </div>
 
         </div>
