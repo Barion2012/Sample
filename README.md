@@ -1,25 +1,25 @@
 ﻿# Список задач
 
 
-### index.html 
+### wwwroot/index.html 
 Файл с разметкой для форм отображения списка задач и ввода данных для
 добавления в список задач (HTML)
 
-### app.js 
+### wwwroot/app.js 
 
 Файл JavaScript с методами для получения/сохранения данных форм
 
-### PService.cs 
+### Code/PService.cs 
 Файл C# с методами для получения списка задач и сохранения новой задачи
 
-### JobData.cs
+### Code/JobData.cs
 
 Файл С# c моделью данных для задачи
 
-### SampleDb.sql 
+### Migrations/SampleDb.sql 
 
 Файл DDL (SQL) создания таблицы для хранения данных
 
-### PContext.cs 
+### Models/PContext.cs 
 
 Файл С# c мэппингом модели на поля таблицы с использованием ModelBuilder-a.
