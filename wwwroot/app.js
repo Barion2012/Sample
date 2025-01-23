@@ -29,11 +29,11 @@ app.controller('SearchCtrl', ['$http', '$scope', function ($http, $scope) {
 					validJobData = true
 				}
 				else {
-					message = "Пожалуйста укажите время в формате ЧЧ:ММ, потраченное время дожно быть больше нуля";
+					message = "Пожалуйста укажите время в формате ЧЧ:ММ, потраченное время должно быть больше нуля";
 				}
 			}
 			else {
-				message = "Пожалуйста укажите время в формате ЧЧ:ММ, потраченное время дожно быть больше нуля";
+				message = "Пожалуйста укажите время в формате ЧЧ:ММ, потраченное время должно быть больше нуля";
 			}
 
 			if (validJobData) {
@@ -46,7 +46,10 @@ app.controller('SearchCtrl', ['$http', '$scope', function ($http, $scope) {
 					$scope.job.description = "";
 					$scope.job.cost = "";
 					$scope.jobdata = res;
-				}).error((res) => alert(res))
+				}).error((res) => {
+					alert(message);
+					console.error(res);
+				})
 			}
 			else {
 				alert(message);
