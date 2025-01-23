@@ -16,7 +16,6 @@
     <None Include="appsettings.Development.json">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
-    <None Include="Code\JobData.cs" />
   </ItemGroup>
 
   <ItemGroup>
