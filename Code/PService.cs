@@ -16,25 +16,26 @@ public class PService : IService
 
     public async Task AddNewJob(Job job)
     {
-        if (string.IsNullOrWhiteSpace(job.Description)) {
-            throw new Exception("Заполните пожалуйста описание задачи");
-        }
-        else if (job.Cost.Hour==0 && job.Cost.Minute==0)
-        {
-            throw new Exception("Пожалуйста укажите время в формате ЧЧ:ММ, потраченное время должно быть больше нуля");
-        }
-
         job.User = TEST_USER;
         job.Completed = DateTime.Now;
 
         try
         {
+            if (string.IsNullOrWhiteSpace(job.Description))
+            {
+                throw new Exception("Заполните пожалуйста описание задачи");
+            }
+            else if (job.Cost.Hour == 0 && job.Cost.Minute == 0)
+            {
+                throw new Exception("Пожалуйста укажите время в формате ЧЧ:ММ, потраченное время должно быть больше нуля");
+            }
+
             await _db.Jobs.AddAsync(job!);
             await _db.SaveChangesAsync();
         }
-        catch(Exception ex)
+        catch (Exception)
         {
-            throw new Exception(ex.Message);
+            throw;
         }
     }
 
